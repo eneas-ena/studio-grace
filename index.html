@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Studio Grace</title>
-<meta name="description" content="Agende seu horário no Studio Grace, design de sobrancelhas.">
+<meta name="description" content="Agende seu horário no Studio Grace.">
 <meta name="theme-color" content="#7B2D56">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" href="icon-192.png">
@@ -104,7 +104,10 @@ a { color: var(--acento); }
 .caixa-precos summary svg { grid-column: 2; grid-row: 1 / span 2; width: 22px; height: 22px; color: var(--acento); transition: transform .18s ease; }
 .caixa-precos[open] summary svg { transform: rotate(90deg); }
 .caixa-precos[open] .caixa-dica { display: none; }
-.caixa-precos .precos { padding: 0 18px; border-top: 1px solid var(--linha); }
+.caixa-lista { border-top: 1px solid var(--linha); }
+.caixa-precos .precos { padding: 0 18px; }
+.grupo-prof { font-weight: 700; font-size: 14px; color: var(--acento); margin: 18px 0 0; }
+.caixa-precos .grupo-prof { padding: 0 18px; }
 .caixa-nota { padding: 4px 18px 18px; }
 
 /* Lista de preços */
@@ -246,7 +249,7 @@ dialog h3 { font: 400 28px/1.15 var(--titulo); margin-bottom: 8px; }
 var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],f={},c=function(t,r){o=function(t){for(var r=new Array(t),e=0;e<t;e+=1){r[e]=new Array(t);for(var n=0;n<t;n+=1)r[e][n]=null}return r}(i=4*e+17),l(0,0),l(i-7,0),l(0,i-7),s(),h(),d(t,r),e>=7&&v(t),null==a&&(a=p(e,n,u)),w(a,r)},l=function(t,r){for(var e=-1;e<=7;e+=1)if(!(t+e<=-1||i<=t+e))for(var n=-1;n<=7;n+=1)r+n<=-1||i<=r+n||(o[t+e][r+n]=0<=e&&e<=6&&(0==n||6==n)||0<=n&&n<=6&&(0==e||6==e)||2<=e&&e<=4&&2<=n&&n<=4)},h=function(){for(var t=8;t<i-8;t+=1)null==o[t][6]&&(o[t][6]=t%2==0);for(var r=8;r<i-8;r+=1)null==o[6][r]&&(o[6][r]=r%2==0)},s=function(){for(var t=B.getPatternPosition(e),r=0;r<t.length;r+=1)for(var n=0;n<t.length;n+=1){var i=t[r],a=t[n];if(null==o[i][a])for(var u=-2;u<=2;u+=1)for(var f=-2;f<=2;f+=1)o[i+u][a+f]=-2==u||2==u||-2==f||2==f||0==u&&0==f}},v=function(t){for(var r=B.getBCHTypeNumber(e),n=0;n<18;n+=1){var a=!t&&1==(r>>n&1);o[Math.floor(n/3)][n%3+i-8-3]=a}for(n=0;n<18;n+=1){a=!t&&1==(r>>n&1);o[n%3+i-8-3][Math.floor(n/3)]=a}},d=function(t,r){for(var e=n<<3|r,a=B.getBCHTypeInfo(e),u=0;u<15;u+=1){var f=!t&&1==(a>>u&1);u<6?o[u][8]=f:u<8?o[u+1][8]=f:o[i-15+u][8]=f}for(u=0;u<15;u+=1){f=!t&&1==(a>>u&1);u<8?o[8][i-u-1]=f:u<9?o[8][15-u-1+1]=f:o[8][15-u-1]=f}o[i-8][8]=!t},w=function(t,r){for(var e=-1,n=i-1,a=7,u=0,f=B.getMaskFunction(r),c=i-1;c>0;c-=2)for(6==c&&(c-=1);;){for(var g=0;g<2;g+=1)if(null==o[n][c-g]){var l=!1;u<t.length&&(l=1==(t[u]>>>a&1)),f(n,c-g)&&(l=!l),o[n][c-g]=l,-1==(a-=1)&&(u+=1,a=7)}if((n+=e)<0||i<=n){n-=e,e=-e;break}}},p=function(t,r,e){for(var n=A.getRSBlocks(t,r),o=b(),i=0;i<e.length;i+=1){var a=e[i];o.put(a.getMode(),4),o.put(a.getLength(),B.getLengthInBits(a.getMode(),t)),a.write(o)}var u=0;for(i=0;i<n.length;i+=1)u+=n[i].dataCount;if(o.getLengthInBits()>8*u)throw"code length overflow. ("+o.getLengthInBits()+">"+8*u+")";for(o.getLengthInBits()+4<=8*u&&o.put(0,4);o.getLengthInBits()%8!=0;)o.putBit(!1);for(;!(o.getLengthInBits()>=8*u||(o.put(236,8),o.getLengthInBits()>=8*u));)o.put(17,8);return function(t,r){for(var e=0,n=0,o=0,i=new Array(r.length),a=new Array(r.length),u=0;u<r.length;u+=1){var f=r[u].dataCount,c=r[u].totalCount-f;n=Math.max(n,f),o=Math.max(o,c),i[u]=new Array(f);for(var g=0;g<i[u].length;g+=1)i[u][g]=255&t.getBuffer()[g+e];e+=f;var l=B.getErrorCorrectPolynomial(c),h=k(i[u],l.getLength()-1).mod(l);for(a[u]=new Array(l.getLength()-1),g=0;g<a[u].length;g+=1){var s=g+h.getLength()-a[u].length;a[u][g]=s>=0?h.getAt(s):0}}var v=0;for(g=0;g<r.length;g+=1)v+=r[g].totalCount;var d=new Array(v),w=0;for(g=0;g<n;g+=1)for(u=0;u<r.length;u+=1)g<i[u].length&&(d[w]=i[u][g],w+=1);for(g=0;g<o;g+=1)for(u=0;u<r.length;u+=1)g<a[u].length&&(d[w]=a[u][g],w+=1);return d}(o,n)};f.addData=function(t,r){var e=null;switch(r=r||"Byte"){case"Numeric":e=M(t);break;case"Alphanumeric":e=x(t);break;case"Byte":e=m(t);break;case"Kanji":e=L(t);break;default:throw"mode:"+r}u.push(e),a=null},f.isDark=function(t,r){if(t<0||i<=t||r<0||i<=r)throw t+","+r;return o[t][r]},f.getModuleCount=function(){return i},f.make=function(){if(e<1){for(var t=1;t<40;t++){for(var r=A.getRSBlocks(t,n),o=b(),i=0;i<u.length;i++){var a=u[i];o.put(a.getMode(),4),o.put(a.getLength(),B.getLengthInBits(a.getMode(),t)),a.write(o)}var g=0;for(i=0;i<r.length;i++)g+=r[i].dataCount;if(o.getLengthInBits()<=8*g)break}e=t}c(!1,function(){for(var t=0,r=0,e=0;e<8;e+=1){c(!0,e);var n=B.getLostPoint(f);(0==e||t>n)&&(t=n,r=e)}return r}())},f.createTableTag=function(t,r){t=t||2;var e="";e+='<table style="',e+=" border-width: 0px; border-style: none;",e+=" border-collapse: collapse;",e+=" padding: 0px; margin: "+(r=void 0===r?4*t:r)+"px;",e+='">',e+="<tbody>";for(var n=0;n<f.getModuleCount();n+=1){e+="<tr>";for(var o=0;o<f.getModuleCount();o+=1)e+='<td style="',e+=" border-width: 0px; border-style: none;",e+=" border-collapse: collapse;",e+=" padding: 0px; margin: 0px;",e+=" width: "+t+"px;",e+=" height: "+t+"px;",e+=" background-color: ",e+=f.isDark(n,o)?"#000000":"#ffffff",e+=";",e+='"/>';e+="</tr>"}return e+="</tbody>",e+="</table>"},f.createSvgTag=function(t,r,e,n){var o={};"object"==typeof arguments[0]&&(t=(o=arguments[0]).cellSize,r=o.margin,e=o.alt,n=o.title),t=t||2,r=void 0===r?4*t:r,(e="string"==typeof e?{text:e}:e||{}).text=e.text||null,e.id=e.text?e.id||"qrcode-description":null,(n="string"==typeof n?{text:n}:n||{}).text=n.text||null,n.id=n.text?n.id||"qrcode-title":null;var i,a,u,c,g=f.getModuleCount()*t+2*r,l="";for(c="l"+t+",0 0,"+t+" -"+t+",0 0,-"+t+"z ",l+='<svg version="1.1" xmlns="http://www.w3.org/2000/svg"',l+=o.scalable?"":' width="'+g+'px" height="'+g+'px"',l+=' viewBox="0 0 '+g+" "+g+'" ',l+=' preserveAspectRatio="xMinYMin meet"',l+=n.text||e.text?' role="img" aria-labelledby="'+y([n.id,e.id].join(" ").trim())+'"':"",l+=">",l+=n.text?'<title id="'+y(n.id)+'">'+y(n.text)+"</title>":"",l+=e.text?'<description id="'+y(e.id)+'">'+y(e.text)+"</description>":"",l+='<rect width="100%" height="100%" fill="white" cx="0" cy="0"/>',l+='<path d="',a=0;a<f.getModuleCount();a+=1)for(u=a*t+r,i=0;i<f.getModuleCount();i+=1)f.isDark(a,i)&&(l+="M"+(i*t+r)+","+u+c);return l+='" stroke="transparent" fill="black"/>',l+="</svg>"},f.createDataURL=function(t,r){t=t||2,r=void 0===r?4*t:r;var e=f.getModuleCount()*t+2*r,n=r,o=e-r;return I(e,e,function(r,e){if(n<=r&&r<o&&n<=e&&e<o){var i=Math.floor((r-n)/t),a=Math.floor((e-n)/t);return f.isDark(a,i)?0:1}return 1})},f.createImgTag=function(t,r,e){t=t||2,r=void 0===r?4*t:r;var n=f.getModuleCount()*t+2*r,o="";return o+="<img",o+=' src="',o+=f.createDataURL(t,r),o+='"',o+=' width="',o+=n,o+='"',o+=' height="',o+=n,o+='"',e&&(o+=' alt="',o+=y(e),o+='"'),o+="/>"};var y=function(t){for(var r="",e=0;e<t.length;e+=1){var n=t.charAt(e);switch(n){case"<":r+="&lt;";break;case">":r+="&gt;";break;case"&":r+="&amp;";break;case'"':r+="&quot;";break;default:r+=n}}return r};return f.createASCII=function(t,r){if((t=t||1)<2)return function(t){t=void 0===t?2:t;var r,e,n,o,i,a=1*f.getModuleCount()+2*t,u=t,c=a-t,g={"██":"█","█ ":"▀"," █":"▄","  ":" "},l={"██":"▀","█ ":"▀"," █":" ","  ":" "},h="";for(r=0;r<a;r+=2){for(n=Math.floor((r-u)/1),o=Math.floor((r+1-u)/1),e=0;e<a;e+=1)i="█",u<=e&&e<c&&u<=r&&r<c&&f.isDark(n,Math.floor((e-u)/1))&&(i=" "),u<=e&&e<c&&u<=r+1&&r+1<c&&f.isDark(o,Math.floor((e-u)/1))?i+=" ":i+="█",h+=t<1&&r+1>=c?l[i]:g[i];h+="\n"}return a%2&&t>0?h.substring(0,h.length-a-1)+Array(a+1).join("▀"):h.substring(0,h.length-1)}(r);t-=1,r=void 0===r?2*t:r;var e,n,o,i,a=f.getModuleCount()*t+2*r,u=r,c=a-r,g=Array(t+1).join("██"),l=Array(t+1).join("  "),h="",s="";for(e=0;e<a;e+=1){for(o=Math.floor((e-u)/t),s="",n=0;n<a;n+=1)i=1,u<=n&&n<c&&u<=e&&e<c&&f.isDark(o,Math.floor((n-u)/t))&&(i=0),s+=i?g:l;for(o=0;o<t;o+=1)h+=s+"\n"}return h.substring(0,h.length-1)},f.renderTo2dContext=function(t,r){r=r||2;for(var e=f.getModuleCount(),n=0;n<e;n++)for(var o=0;o<e;o++)t.fillStyle=f.isDark(n,o)?"black":"white",t.fillRect(o*r,n*r,r,r)},f};t.stringToBytes=(t.stringToBytesFuncs={default:function(t){for(var r=[],e=0;e<t.length;e+=1){var n=t.charCodeAt(e);r.push(255&n)}return r}}).default,t.createStringToBytes=function(t,r){var e=function(){for(var e=S(t),n=function(){var t=e.read();if(-1==t)throw"eof";return t},o=0,i={};;){var a=e.read();if(-1==a)break;var u=n(),f=n()<<8|n();i[String.fromCharCode(a<<8|u)]=f,o+=1}if(o!=r)throw o+" != "+r;return i}(),n="?".charCodeAt(0);return function(t){for(var r=[],o=0;o<t.length;o+=1){var i=t.charCodeAt(o);if(i<128)r.push(i);else{var a=e[t.charAt(o)];"number"==typeof a?(255&a)==a?r.push(a):(r.push(a>>>8),r.push(255&a)):r.push(n)}}return r}};var r,e,n,o,i,a=1,u=2,f=4,c=8,g={L:1,M:0,Q:3,H:2},l=0,h=1,s=2,v=3,d=4,w=5,p=6,y=7,B=(r=[[],[6,18],[6,22],[6,26],[6,30],[6,34],[6,22,38],[6,24,42],[6,26,46],[6,28,50],[6,30,54],[6,32,58],[6,34,62],[6,26,46,66],[6,26,48,70],[6,26,50,74],[6,30,54,78],[6,30,56,82],[6,30,58,86],[6,34,62,90],[6,28,50,72,94],[6,26,50,74,98],[6,30,54,78,102],[6,28,54,80,106],[6,32,58,84,110],[6,30,58,86,114],[6,34,62,90,118],[6,26,50,74,98,122],[6,30,54,78,102,126],[6,26,52,78,104,130],[6,30,56,82,108,134],[6,34,60,86,112,138],[6,30,58,86,114,142],[6,34,62,90,118,146],[6,30,54,78,102,126,150],[6,24,50,76,102,128,154],[6,28,54,80,106,132,158],[6,32,58,84,110,136,162],[6,26,54,82,110,138,166],[6,30,58,86,114,142,170]],e=1335,n=7973,i=function(t){for(var r=0;0!=t;)r+=1,t>>>=1;return r},(o={}).getBCHTypeInfo=function(t){for(var r=t<<10;i(r)-i(e)>=0;)r^=e<<i(r)-i(e);return 21522^(t<<10|r)},o.getBCHTypeNumber=function(t){for(var r=t<<12;i(r)-i(n)>=0;)r^=n<<i(r)-i(n);return t<<12|r},o.getPatternPosition=function(t){return r[t-1]},o.getMaskFunction=function(t){switch(t){case l:return function(t,r){return(t+r)%2==0};case h:return function(t,r){return t%2==0};case s:return function(t,r){return r%3==0};case v:return function(t,r){return(t+r)%3==0};case d:return function(t,r){return(Math.floor(t/2)+Math.floor(r/3))%2==0};case w:return function(t,r){return t*r%2+t*r%3==0};case p:return function(t,r){return(t*r%2+t*r%3)%2==0};case y:return function(t,r){return(t*r%3+(t+r)%2)%2==0};default:throw"bad maskPattern:"+t}},o.getErrorCorrectPolynomial=function(t){for(var r=k([1],0),e=0;e<t;e+=1)r=r.multiply(k([1,C.gexp(e)],0));return r},o.getLengthInBits=function(t,r){if(1<=r&&r<10)switch(t){case a:return 10;case u:return 9;case f:case c:return 8;default:throw"mode:"+t}else if(r<27)switch(t){case a:return 12;case u:return 11;case f:return 16;case c:return 10;default:throw"mode:"+t}else{if(!(r<41))throw"type:"+r;switch(t){case a:return 14;case u:return 13;case f:return 16;case c:return 12;default:throw"mode:"+t}}},o.getLostPoint=function(t){for(var r=t.getModuleCount(),e=0,n=0;n<r;n+=1)for(var o=0;o<r;o+=1){for(var i=0,a=t.isDark(n,o),u=-1;u<=1;u+=1)if(!(n+u<0||r<=n+u))for(var f=-1;f<=1;f+=1)o+f<0||r<=o+f||0==u&&0==f||a==t.isDark(n+u,o+f)&&(i+=1);i>5&&(e+=3+i-5)}for(n=0;n<r-1;n+=1)for(o=0;o<r-1;o+=1){var c=0;t.isDark(n,o)&&(c+=1),t.isDark(n+1,o)&&(c+=1),t.isDark(n,o+1)&&(c+=1),t.isDark(n+1,o+1)&&(c+=1),0!=c&&4!=c||(e+=3)}for(n=0;n<r;n+=1)for(o=0;o<r-6;o+=1)t.isDark(n,o)&&!t.isDark(n,o+1)&&t.isDark(n,o+2)&&t.isDark(n,o+3)&&t.isDark(n,o+4)&&!t.isDark(n,o+5)&&t.isDark(n,o+6)&&(e+=40);for(o=0;o<r;o+=1)for(n=0;n<r-6;n+=1)t.isDark(n,o)&&!t.isDark(n+1,o)&&t.isDark(n+2,o)&&t.isDark(n+3,o)&&t.isDark(n+4,o)&&!t.isDark(n+5,o)&&t.isDark(n+6,o)&&(e+=40);var g=0;for(o=0;o<r;o+=1)for(n=0;n<r;n+=1)t.isDark(n,o)&&(g+=1);return e+=Math.abs(100*g/r/r-50)/5*10},o),C=function(){for(var t=new Array(256),r=new Array(256),e=0;e<8;e+=1)t[e]=1<<e;for(e=8;e<256;e+=1)t[e]=t[e-4]^t[e-5]^t[e-6]^t[e-8];for(e=0;e<255;e+=1)r[t[e]]=e;var n={glog:function(t){if(t<1)throw"glog("+t+")";return r[t]},gexp:function(r){for(;r<0;)r+=255;for(;r>=256;)r-=255;return t[r]}};return n}();function k(t,r){if(void 0===t.length)throw t.length+"/"+r;var e=function(){for(var e=0;e<t.length&&0==t[e];)e+=1;for(var n=new Array(t.length-e+r),o=0;o<t.length-e;o+=1)n[o]=t[o+e];return n}(),n={getAt:function(t){return e[t]},getLength:function(){return e.length},multiply:function(t){for(var r=new Array(n.getLength()+t.getLength()-1),e=0;e<n.getLength();e+=1)for(var o=0;o<t.getLength();o+=1)r[e+o]^=C.gexp(C.glog(n.getAt(e))+C.glog(t.getAt(o)));return k(r,0)},mod:function(t){if(n.getLength()-t.getLength()<0)return n;for(var r=C.glog(n.getAt(0))-C.glog(t.getAt(0)),e=new Array(n.getLength()),o=0;o<n.getLength();o+=1)e[o]=n.getAt(o);for(o=0;o<t.getLength();o+=1)e[o]^=C.gexp(C.glog(t.getAt(o))+r);return k(e,0).mod(t)}};return n}var A=function(){var t=[[1,26,19],[1,26,16],[1,26,13],[1,26,9],[1,44,34],[1,44,28],[1,44,22],[1,44,16],[1,70,55],[1,70,44],[2,35,17],[2,35,13],[1,100,80],[2,50,32],[2,50,24],[4,25,9],[1,134,108],[2,67,43],[2,33,15,2,34,16],[2,33,11,2,34,12],[2,86,68],[4,43,27],[4,43,19],[4,43,15],[2,98,78],[4,49,31],[2,32,14,4,33,15],[4,39,13,1,40,14],[2,121,97],[2,60,38,2,61,39],[4,40,18,2,41,19],[4,40,14,2,41,15],[2,146,116],[3,58,36,2,59,37],[4,36,16,4,37,17],[4,36,12,4,37,13],[2,86,68,2,87,69],[4,69,43,1,70,44],[6,43,19,2,44,20],[6,43,15,2,44,16],[4,101,81],[1,80,50,4,81,51],[4,50,22,4,51,23],[3,36,12,8,37,13],[2,116,92,2,117,93],[6,58,36,2,59,37],[4,46,20,6,47,21],[7,42,14,4,43,15],[4,133,107],[8,59,37,1,60,38],[8,44,20,4,45,21],[12,33,11,4,34,12],[3,145,115,1,146,116],[4,64,40,5,65,41],[11,36,16,5,37,17],[11,36,12,5,37,13],[5,109,87,1,110,88],[5,65,41,5,66,42],[5,54,24,7,55,25],[11,36,12,7,37,13],[5,122,98,1,123,99],[7,73,45,3,74,46],[15,43,19,2,44,20],[3,45,15,13,46,16],[1,135,107,5,136,108],[10,74,46,1,75,47],[1,50,22,15,51,23],[2,42,14,17,43,15],[5,150,120,1,151,121],[9,69,43,4,70,44],[17,50,22,1,51,23],[2,42,14,19,43,15],[3,141,113,4,142,114],[3,70,44,11,71,45],[17,47,21,4,48,22],[9,39,13,16,40,14],[3,135,107,5,136,108],[3,67,41,13,68,42],[15,54,24,5,55,25],[15,43,15,10,44,16],[4,144,116,4,145,117],[17,68,42],[17,50,22,6,51,23],[19,46,16,6,47,17],[2,139,111,7,140,112],[17,74,46],[7,54,24,16,55,25],[34,37,13],[4,151,121,5,152,122],[4,75,47,14,76,48],[11,54,24,14,55,25],[16,45,15,14,46,16],[6,147,117,4,148,118],[6,73,45,14,74,46],[11,54,24,16,55,25],[30,46,16,2,47,17],[8,132,106,4,133,107],[8,75,47,13,76,48],[7,54,24,22,55,25],[22,45,15,13,46,16],[10,142,114,2,143,115],[19,74,46,4,75,47],[28,50,22,6,51,23],[33,46,16,4,47,17],[8,152,122,4,153,123],[22,73,45,3,74,46],[8,53,23,26,54,24],[12,45,15,28,46,16],[3,147,117,10,148,118],[3,73,45,23,74,46],[4,54,24,31,55,25],[11,45,15,31,46,16],[7,146,116,7,147,117],[21,73,45,7,74,46],[1,53,23,37,54,24],[19,45,15,26,46,16],[5,145,115,10,146,116],[19,75,47,10,76,48],[15,54,24,25,55,25],[23,45,15,25,46,16],[13,145,115,3,146,116],[2,74,46,29,75,47],[42,54,24,1,55,25],[23,45,15,28,46,16],[17,145,115],[10,74,46,23,75,47],[10,54,24,35,55,25],[19,45,15,35,46,16],[17,145,115,1,146,116],[14,74,46,21,75,47],[29,54,24,19,55,25],[11,45,15,46,46,16],[13,145,115,6,146,116],[14,74,46,23,75,47],[44,54,24,7,55,25],[59,46,16,1,47,17],[12,151,121,7,152,122],[12,75,47,26,76,48],[39,54,24,14,55,25],[22,45,15,41,46,16],[6,151,121,14,152,122],[6,75,47,34,76,48],[46,54,24,10,55,25],[2,45,15,64,46,16],[17,152,122,4,153,123],[29,74,46,14,75,47],[49,54,24,10,55,25],[24,45,15,46,46,16],[4,152,122,18,153,123],[13,74,46,32,75,47],[48,54,24,14,55,25],[42,45,15,32,46,16],[20,147,117,4,148,118],[40,75,47,7,76,48],[43,54,24,22,55,25],[10,45,15,67,46,16],[19,148,118,6,149,119],[18,75,47,31,76,48],[34,54,24,34,55,25],[20,45,15,61,46,16]],r=function(t,r){var e={};return e.totalCount=t,e.dataCount=r,e},e={};return e.getRSBlocks=function(e,n){var o=function(r,e){switch(e){case g.L:return t[4*(r-1)+0];case g.M:return t[4*(r-1)+1];case g.Q:return t[4*(r-1)+2];case g.H:return t[4*(r-1)+3];default:return}}(e,n);if(void 0===o)throw"bad rs block @ typeNumber:"+e+"/errorCorrectionLevel:"+n;for(var i=o.length/3,a=[],u=0;u<i;u+=1)for(var f=o[3*u+0],c=o[3*u+1],l=o[3*u+2],h=0;h<f;h+=1)a.push(r(c,l));return a},e}(),b=function(){var t=[],r=0,e={getBuffer:function(){return t},getAt:function(r){var e=Math.floor(r/8);return 1==(t[e]>>>7-r%8&1)},put:function(t,r){for(var n=0;n<r;n+=1)e.putBit(1==(t>>>r-n-1&1))},getLengthInBits:function(){return r},putBit:function(e){var n=Math.floor(r/8);t.length<=n&&t.push(0),e&&(t[n]|=128>>>r%8),r+=1}};return e},M=function(t){var r=a,e=t,n={getMode:function(){return r},getLength:function(t){return e.length},write:function(t){for(var r=e,n=0;n+2<r.length;)t.put(o(r.substring(n,n+3)),10),n+=3;n<r.length&&(r.length-n==1?t.put(o(r.substring(n,n+1)),4):r.length-n==2&&t.put(o(r.substring(n,n+2)),7))}},o=function(t){for(var r=0,e=0;e<t.length;e+=1)r=10*r+i(t.charAt(e));return r},i=function(t){if("0"<=t&&t<="9")return t.charCodeAt(0)-"0".charCodeAt(0);throw"illegal char :"+t};return n},x=function(t){var r=u,e=t,n={getMode:function(){return r},getLength:function(t){return e.length},write:function(t){for(var r=e,n=0;n+1<r.length;)t.put(45*o(r.charAt(n))+o(r.charAt(n+1)),11),n+=2;n<r.length&&t.put(o(r.charAt(n)),6)}},o=function(t){if("0"<=t&&t<="9")return t.charCodeAt(0)-"0".charCodeAt(0);if("A"<=t&&t<="Z")return t.charCodeAt(0)-"A".charCodeAt(0)+10;switch(t){case" ":return 36;case"$":return 37;case"%":return 38;case"*":return 39;case"+":return 40;case"-":return 41;case".":return 42;case"/":return 43;case":":return 44;default:throw"illegal char :"+t}};return n},m=function(r){var e=f,n=t.stringToBytes(r),o={getMode:function(){return e},getLength:function(t){return n.length},write:function(t){for(var r=0;r<n.length;r+=1)t.put(n[r],8)}};return o},L=function(r){var e=c,n=t.stringToBytesFuncs.SJIS;if(!n)throw"sjis not supported.";!function(){var t=n("友");if(2!=t.length||38726!=(t[0]<<8|t[1]))throw"sjis not supported."}();var o=n(r),i={getMode:function(){return e},getLength:function(t){return~~(o.length/2)},write:function(t){for(var r=o,e=0;e+1<r.length;){var n=(255&r[e])<<8|255&r[e+1];if(33088<=n&&n<=40956)n-=33088;else{if(!(57408<=n&&n<=60351))throw"illegal char at "+(e+1)+"/"+n;n-=49472}n=192*(n>>>8&255)+(255&n),t.put(n,13),e+=2}if(e<r.length)throw"illegal char at "+(e+1)}};return i},D=function(){var t=[],r={writeByte:function(r){t.push(255&r)},writeShort:function(t){r.writeByte(t),r.writeByte(t>>>8)},writeBytes:function(t,e,n){e=e||0,n=n||t.length;for(var o=0;o<n;o+=1)r.writeByte(t[o+e])},writeString:function(t){for(var e=0;e<t.length;e+=1)r.writeByte(t.charCodeAt(e))},toByteArray:function(){return t},toString:function(){var r="";r+="[";for(var e=0;e<t.length;e+=1)e>0&&(r+=","),r+=t[e];return r+="]"}};return r},S=function(t){var r=t,e=0,n=0,o=0,i={read:function(){for(;o<8;){if(e>=r.length){if(0==o)return-1;throw"unexpected end of file./"+o}var t=r.charAt(e);if(e+=1,"="==t)return o=0,-1;t.match(/^\s$/)||(n=n<<6|a(t.charCodeAt(0)),o+=6)}var i=n>>>o-8&255;return o-=8,i}},a=function(t){if(65<=t&&t<=90)return t-65;if(97<=t&&t<=122)return t-97+26;if(48<=t&&t<=57)return t-48+52;if(43==t)return 62;if(47==t)return 63;throw"c:"+t};return i},I=function(t,r,e){for(var n=function(t,r){var e=t,n=r,o=new Array(t*r),i={setPixel:function(t,r,n){o[r*e+t]=n},write:function(t){t.writeString("GIF87a"),t.writeShort(e),t.writeShort(n),t.writeByte(128),t.writeByte(0),t.writeByte(0),t.writeByte(0),t.writeByte(0),t.writeByte(0),t.writeByte(255),t.writeByte(255),t.writeByte(255),t.writeString(","),t.writeShort(0),t.writeShort(0),t.writeShort(e),t.writeShort(n),t.writeByte(0);var r=a(2);t.writeByte(2);for(var o=0;r.length-o>255;)t.writeByte(255),t.writeBytes(r,o,255),o+=255;t.writeByte(r.length-o),t.writeBytes(r,o,r.length-o),t.writeByte(0),t.writeString(";")}},a=function(t){for(var r=1<<t,e=1+(1<<t),n=t+1,i=u(),a=0;a<r;a+=1)i.add(String.fromCharCode(a));i.add(String.fromCharCode(r)),i.add(String.fromCharCode(e));var f,c,g,l=D(),h=(f=l,c=0,g=0,{write:function(t,r){if(t>>>r!=0)throw"length over";for(;c+r>=8;)f.writeByte(255&(t<<c|g)),r-=8-c,t>>>=8-c,g=0,c=0;g|=t<<c,c+=r},flush:function(){c>0&&f.writeByte(g)}});h.write(r,n);var s=0,v=String.fromCharCode(o[s]);for(s+=1;s<o.length;){var d=String.fromCharCode(o[s]);s+=1,i.contains(v+d)?v+=d:(h.write(i.indexOf(v),n),i.size()<4095&&(i.size()==1<<n&&(n+=1),i.add(v+d)),v=d)}return h.write(i.indexOf(v),n),h.write(e,n),h.flush(),l.toByteArray()},u=function(){var t={},r=0,e={add:function(n){if(e.contains(n))throw"dup key:"+n;t[n]=r,r+=1},size:function(){return r},indexOf:function(r){return t[r]},contains:function(r){return void 0!==t[r]}};return e};return i}(t,r),o=0;o<r;o+=1)for(var i=0;i<t;i+=1)n.setPixel(i,o,e(i,o));var a=D();n.write(a);for(var u=function(){var t=0,r=0,e=0,n="",o={},i=function(t){n+=String.fromCharCode(a(63&t))},a=function(t){if(t<0);else{if(t<26)return 65+t;if(t<52)return t-26+97;if(t<62)return t-52+48;if(62==t)return 43;if(63==t)return 47}throw"n:"+t};return o.writeByte=function(n){for(t=t<<8|255&n,r+=8,e+=1;r>=6;)i(t>>>r-6),r-=6},o.flush=function(){if(r>0&&(i(t<<6-r),t=0,r=0),e%3!=0)for(var o=3-e%3,a=0;a<o;a+=1)n+="="},o.toString=function(){return n},o}(),f=a.toByteArray(),c=0;c<f.length;c+=1)u.writeByte(f[c]);return u.flush(),"data:image/gif;base64,"+u};return t}();qrcode.stringToBytesFuncs["UTF-8"]=function(t){return function(t){for(var r=[],e=0;e<t.length;e++){var n=t.charCodeAt(e);n<128?r.push(n):n<2048?r.push(192|n>>6,128|63&n):n<55296||n>=57344?r.push(224|n>>12,128|n>>6&63,128|63&n):(e++,n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>>6&63,128|63&n))}return r}(t)},function(t){"function"==typeof define&&define.amd?define([],t):"object"==typeof exports&&(module.exports=t())}(function(){return qrcode});</script>
 <script>
 'use strict';
-const VERSAO = '1.0.2';
+const VERSAO = '1.1.0';
 const SUPABASE_URL = 'https://ghjbljypxksubmcsvaig.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_qXCYqg1WdmelY9D1mptZXg_U8NdoKby';
 
@@ -353,7 +356,7 @@ async function rpc(fn, args) {
 const S = {
   pub: null, erroPub: null, tela: 'home', primeiraAbertura: true,
   fluxo: null, meus: null,
-  ad: { token: guarda.ler('sg_admin_token', null), aba: 'agenda', painel: null, periodo: 'semana', ref: null, agenda: null, aberto: null, busca: '', clientes: null, cliente: null, editarServico: null, mesHor: null, disp: null, diaSel: null, form: null, trocar: false, erroEntrada: '' }
+  ad: { token: guarda.ler('sg_admin_token', null), aba: 'agenda', painel: null, periodo: 'semana', ref: null, agenda: null, aberto: null, busca: '', clientes: null, cliente: null, editarServico: null, editarProf: null, filtroProf: null, profHor: null, mesHor: null, disp: null, diaSel: null, form: null, trocar: false, erroEntrada: '' }
 };
 
 /* ---------- Pix (padrão BR Code do Banco Central) ---------- */
@@ -504,6 +507,17 @@ function calendario({ mes, ativo, marca, sel, acao, min, max, livre }) {
 }
 
 /* ---------- Tela da cliente ---------- */
+const proPub = id => S.pub.profissionais.find(p => p.id === id);
+const variasPub = () => new Set(S.pub.servicos.map(s => s.profissional_id)).size > 1;
+function listaServicos(acao) {
+  const grupos = S.pub.profissionais
+    .map(p => ({ p, itens: S.pub.servicos.filter(s => s.profissional_id === p.id) }))
+    .filter(g => g.itens.length);
+  const varias = grupos.length > 1;
+  return grupos.map(g => `${varias ? `<h3 class="grupo-prof">${esc(g.p.nome)}</h3>` : ''}<ul class="precos">${g.itens.map(s => `<li><button data-a="${acao}" data-id="${s.id}" aria-label="Agendar ${esc(s.nome)}${varias ? ' com ' + esc(g.p.nome) : ''}, ${esc(dinheiro(s.preco))}">
+    <span class="nome">${esc(s.nome)}</span><span class="preco">${dinheiro(s.preco)}</span>
+    <span class="det">${esc(s.descricao ? s.descricao + '. ' : '')}${duracaoTexto(s.duracao_min)}</span></button></li>`).join('')}</ul>`).join('');
+}
 function telaHome() {
   const p = S.pub;
   if (!p) {
@@ -520,16 +534,14 @@ function telaHome() {
     <section class="abertura">
       ${sobrancelha(animar)}
       <h1>${esc(st.nome)}</h1>
-      <p>Design de sobrancelhas com horário marcado.</p>
+      ${st.frase ? `<p>${esc(st.frase)}</p>` : ''}
       ${p.servicos.length ? '<button class="btn btn-principal btn-grande" data-a="agendar">Agendar horário</button>' : ''}
     </section>
     <section class="secao" id="precos">
       ${p.servicos.length ? `<details class="caixa-precos" ${S.precosAberto ? 'open' : ''}>
         <summary><span class="caixa-titulo">Serviços e preços</span><span class="caixa-dica">Toque para ver as opções</span>${ICONES.dir}</summary>
-        <ul class="precos">${p.servicos.map(s => `<li><button data-a="agendar" data-id="${s.id}" aria-label="Agendar ${esc(s.nome)}, ${esc(dinheiro(s.preco))}">
-        <span class="nome">${esc(s.nome)}</span><span class="preco">${dinheiro(s.preco)}</span>
-        <span class="det">${esc(s.descricao ? s.descricao + '. ' : '')}${duracaoTexto(s.duracao_min)}</span></button></li>`).join('')}</ul>
-        <p class="pequeno suave caixa-nota">Toque no serviço para escolher dia e horário. Pague por Pix antes do atendimento ou deixe para pagar no dia.</p>
+        <div class="caixa-lista">${listaServicos('agendar')}</div>
+        <p class="pequeno suave caixa-nota">Toque no serviço para escolher dia e horário.${p.profissionais.some(x => x.pix) ? ' Pague por Pix antes do atendimento ou deixe para pagar no dia.' : ''}</p>
       </details>`
       : '<h2>Serviços e preços</h2><p class="suave">Os serviços serão publicados em breve.</p>'}
     </section>
@@ -553,17 +565,19 @@ function telaAgendar() {
   const f = S.fluxo;
   const total = 4;
   const serv = S.pub.servicos.find(s => s.id === f.servico);
+  const pro = serv ? proPub(serv.profissional_id) : null;
+  const comPro = pro && variasPub() ? ` com ${esc(pro.nome)}` : '';
   const passos = `<ol class="passos" aria-label="Passo ${f.passo} de ${total}">${[1, 2, 3, 4].map(n => `<li class="${n <= f.passo ? 'feito' : ''}"></li>`).join('')}</ol>`;
   const voltar = `<button class="voltar" data-a="fluxo-voltar">${ICONES.esq.replace('<svg', '<svg width="16" height="16"')} Voltar</button>`;
   let c = '';
   if (f.passo === 1) {
     c = `<h1 class="titulo-passo">Qual serviço?</h1><p class="resumo">O preço e a duração aparecem ao lado de cada um.</p>
-      <ul class="precos">${S.pub.servicos.map(s => `<li><button data-a="fluxo-servico" data-id="${s.id}"><span class="nome">${esc(s.nome)}</span><span class="preco">${dinheiro(s.preco)}</span><span class="det">${esc(s.descricao ? s.descricao + '. ' : '')}${duracaoTexto(s.duracao_min)}</span></button></li>`).join('')}</ul>`;
+      ${listaServicos('fluxo-servico')}`;
   } else if (f.passo === 2) {
-    c = `<h1 class="titulo-passo">Escolha dia e horário</h1><p class="resumo">${esc(serv.nome)}, ${dinheiro(serv.preco)}, ${duracaoTexto(serv.duracao_min)}.</p>`;
+    c = `<h1 class="titulo-passo">Escolha dia e horário</h1><p class="resumo">${esc(serv.nome)}${comPro}, ${dinheiro(serv.preco)}, ${duracaoTexto(serv.duracao_min)}.</p>`;
     if (f.dias === null) c += '<p class="suave">Buscando os dias com horário livre…</p>';
     else if (!f.dias.length) {
-      c += `<div class="vazio">Não há horários livres no momento.${S.pub.studio.whatsapp ? `<br><br><a class="btn" href="${esc(linkZap(S.pub.studio.whatsapp, 'Olá! Gostaria de marcar um horário no Studio Grace.'))}" target="_blank" rel="noopener">Chamar no WhatsApp</a>` : ''}</div>`;
+      c += `<div class="vazio">Não há horários livres no momento.${pro.whatsapp ? `<br><br><a class="btn" href="${esc(linkZap(pro.whatsapp, 'Olá! Gostaria de marcar um horário no Studio Grace.'))}" target="_blank" rel="noopener">Chamar no WhatsApp</a>` : ''}</div>`;
     } else {
       c += calendario({ mes: f.mes, ativo: d => f.dias.includes(d), sel: f.data, acao: 'fluxo-dia', min: S.pub.hoje, max: S.pub.limite });
       if (f.data) {
@@ -573,7 +587,7 @@ function telaAgendar() {
       }
     }
   } else if (f.passo === 3) {
-    c = `<h1 class="titulo-passo">Seus dados</h1><p class="resumo">${esc(serv.nome)}, ${esc(dataLonga(f.data))}, às ${f.hora}.</p>
+    c = `<h1 class="titulo-passo">Seus dados</h1><p class="resumo">${esc(serv.nome)}${comPro}, ${esc(dataLonga(f.data))}, às ${f.hora}.</p>
     <form data-envio="fluxo-dados" novalidate>
       <label class="campo"><span>Nome</span><input name="nome" autocomplete="name" required maxlength="80" value="${esc(f.nome)}"></label>
       <label class="campo"><span>WhatsApp com DDD</span><input name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" required placeholder="(85) 99999-9999" data-mascara="zap" value="${esc(f.whatsapp)}">
@@ -582,8 +596,8 @@ function telaAgendar() {
       <button class="btn btn-principal btn-grande btn-bloco">Continuar</button>
     </form>`;
   } else if (f.passo === 4) {
-    const temPix = !!S.pub.studio.pix;
-    c = `<h1 class="titulo-passo">Como prefere pagar?</h1><p class="resumo">${esc(serv.nome)}, ${esc(dataLonga(f.data))}, às ${f.hora}. Total de ${dinheiro(serv.preco)}.</p>
+    const temPix = !!pro.pix;
+    c = `<h1 class="titulo-passo">Como prefere pagar?</h1><p class="resumo">${esc(serv.nome)}${comPro}, ${esc(dataLonga(f.data))}, às ${f.hora}. Total de ${dinheiro(serv.preco)}.</p>
       ${temPix ? `<button class="opcao" data-a="fluxo-confirmar" data-p="antecipado" ${f.enviando ? 'disabled' : ''}><strong>Pagar agora por Pix</strong><span>Marca o horário e mostra o QR Code de ${dinheiro(serv.preco)}.</span></button>` : ''}
       <button class="opcao" data-a="fluxo-confirmar" data-p="apos" ${f.enviando ? 'disabled' : ''}><strong>Pagar depois do atendimento</strong><span>Marca o horário agora e o pagamento fica para o dia.</span></button>
       ${f.enviando ? '<p class="suave">Marcando seu horário…</p>' : ''}`;
@@ -597,12 +611,12 @@ function telaPronto() {
   const msg = `Olá! Acabei de agendar ${r.servico} para ${dataLonga(r.data)}, às ${r.hora}. Meu nome é ${S.fluxo.nome}. Código: ${r.codigo}.`;
   return `<div class="pagina">${barraTopo(st.nome)}<main style="padding:8px 0 28px">
     <h1 class="titulo-passo">Horário marcado</h1>
-    <p style="font-size:18px;margin-bottom:6px">${esc(r.servico)}</p>
+    <p style="font-size:18px;margin-bottom:6px">${esc(r.servico)}${variasPub() ? ` com ${esc(r.profissional)}` : ''}</p>
     <p style="font-size:18px;margin-bottom:18px;">${esc(dataLonga(r.data))}, às ${esc(r.hora)}</p>
     ${st.endereco ? `<p class="suave" style="margin-bottom:18px">${esc(st.endereco)}</p>` : ''}
     <div class="acoes" style="flex-direction:column">
-      ${st.pix && r.pagamento_quando === 'antecipado' ? `<button class="btn btn-principal btn-grande" data-a="pix" data-codigo="${esc(r.codigo)}" data-valor="${r.valor}">Pagar ${dinheiro(r.valor)} por Pix</button>` : ''}
-      ${st.whatsapp ? `<a class="btn" href="${esc(linkZap(st.whatsapp, msg))}" target="_blank" rel="noopener">${ICONES.zap} Avisar o Studio no WhatsApp</a>` : ''}
+      ${r.pix && r.pagamento_quando === 'antecipado' ? `<button class="btn btn-principal btn-grande" data-a="pix" data-codigo="${esc(r.codigo)}">Pagar ${dinheiro(r.valor)} por Pix</button>` : ''}
+      ${r.whatsapp ? `<a class="btn" href="${esc(linkZap(r.whatsapp, msg))}" target="_blank" rel="noopener">${ICONES.zap} Avisar o Studio no WhatsApp</a>` : ''}
       <button class="btn" data-a="meus">Ver meus horários</button>
     </div>
     <p class="pequeno suave" style="margin-top:18px">Para remarcar ou cancelar, chame o Studio no WhatsApp.</p>
@@ -624,10 +638,10 @@ function telaMeus() {
   let c = '<p class="suave">Buscando seus horários…</p>';
   if (lista) {
     c = lista.length ? lista.map(a => `<div class="linha ${a.status === 'cancelado' ? 'cancelado' : ''}" style="padding:14px">
-      <span class="tit" style="font-weight:700">${esc(a.servico)}</span>
+      <span class="tit" style="font-weight:700">${esc(a.servico)}${variasPub() ? ` com ${esc(a.profissional)}` : ''}</span>
       <span class="sub suave">${esc(dataLonga(a.data))}, às ${esc(a.hora)}. ${dinheiro(a.valor)}.</span>
       <div class="selos" style="display:flex;flex-wrap:wrap;gap:4px;margin:8px 0 0">${seloStatus(a.status)}${seloPagamento(a)}</div>
-      ${S.pub.studio.pix && a.pagamento_status === 'pendente' && a.status !== 'cancelado' && a.status !== 'faltou' ? `<button class="btn btn-menor btn-principal" style="margin-top:10px" data-a="pix" data-codigo="${esc(a.codigo)}" data-valor="${a.valor}">Pagar por Pix</button>` : ''}
+      ${a.pix && a.pagamento_status === 'pendente' && a.status !== 'cancelado' && a.status !== 'faltou' ? `<button class="btn btn-menor btn-principal" style="margin-top:10px" data-a="pix" data-codigo="${esc(a.codigo)}">Pagar por Pix</button>` : ''}
     </div>`).join('') : '<div class="vazio">Nenhum horário guardado neste aparelho.</div>';
   }
   return `<div class="pagina">${barraTopo(S.pub.studio.nome)}<main>
@@ -639,8 +653,8 @@ function telaMeus() {
   </main>${rodapeHome()}</div>`;
 }
 
-function janelaPix(codigo, valor, admin) {
-  const pix = admin ? { chave: S.ad.painel.config.pix_chave, nome: S.ad.painel.config.pix_nome, cidade: S.ad.painel.config.pix_cidade } : S.pub.studio.pix;
+const pixDoProfissional = p => ({ chave: p.pix_chave, nome: p.pix_nome, cidade: p.pix_cidade });
+function janelaPix(pix, codigo, valor, admin) {
   const payload = pixCodigo({ ...pix, valor, txid: codigo ? 'SG' + codigo : '' });
   abrirJanela(`<h3 style="text-align:center">Pagamento por Pix</h3>
     ${Number(valor) > 0 ? `<p class="valor-pix">${dinheiro(valor)}</p>` : ''}
@@ -717,31 +731,46 @@ function rotuloIntervalo() {
   if (S.ad.periodo === 'mes') return `${MESES[a.getUTCMonth()]} de ${a.getUTCFullYear()}`;
   return `${MESES[a.getUTCMonth()]} a ${MESES[b.getUTCMonth()]} de ${b.getUTCFullYear()}`;
 }
+const proAdm = id => S.ad.painel.profissionais.find(p => p.id === id);
+const variasAdm = () => S.ad.painel.profissionais.length > 1;
+const prosAtivas = () => S.ad.painel.profissionais.filter(p => p.ativo);
 function pendenciasAgenda() {
   const p = S.ad.painel, c = p.config;
   const itens = [];
-  if (!p.servicos.length) itens.push(['servicos', 'Cadastrar os serviços e preços']);
-  if (!p.tem_horarios) itens.push(['horarios', 'Abrir dias e horários']);
-  if (!c.pix_chave) itens.push(['ajustes', 'Informar a chave Pix']);
+  const nome = x => variasAdm() ? `${x.nome}: ` : '';
+  for (const x of prosAtivas()) {
+    if (!p.servicos.some(s => s.profissional_id === x.id)) itens.push(['servicos', `${nome(x)}cadastrar os serviços e preços`]);
+    if (!p.com_horarios.includes(x.id)) itens.push(['horarios', `${nome(x)}abrir dias e horários`]);
+    if (!x.pix_chave) itens.push(['ajustes', `${nome(x)}informar a chave Pix`]);
+  }
   if (!c.endereco) itens.push(['ajustes', 'Informar o endereço']);
   if (!c.whatsapp) itens.push(['ajustes', 'Informar o WhatsApp do Studio']);
   if (!itens.length) return '';
-  return `<div class="pendencias"><strong>Falta configurar:</strong>${itens.map(([k, r]) => `<button data-a="aba" data-k="${k}">${r}</button>`).join('')}</div>`;
+  return `<div class="pendencias"><strong>Falta configurar:</strong>${itens.map(([k, r]) => `<button data-a="aba" data-k="${k}">${esc(r.charAt(0).toUpperCase() + r.slice(1))}</button>`).join('')}</div>`;
+}
+function seletorProfissional(acao, atual, comTodas) {
+  const lista = S.ad.painel.profissionais.filter(p => p.ativo || p.id === atual);
+  if (!variasAdm() || !lista.length) return '';
+  return `<div class="chips" role="group" aria-label="Profissional" style="margin-bottom:14px">
+    ${comTodas ? `<button type="button" class="chip ${atual === null ? 'sel' : ''}" data-a="${acao}" data-id="" aria-pressed="${atual === null}">Todas</button>` : ''}
+    ${lista.map(p => `<button type="button" class="chip ${atual === p.id ? 'sel' : ''}" data-a="${acao}" data-id="${p.id}" aria-pressed="${atual === p.id}">${esc(p.nome)}</button>`).join('')}
+  </div>`;
 }
 function abaAgenda() {
   const ad = S.ad;
   let lista = '<p class="suave">Carregando…</p>', numeros = '';
   if (ad.agenda) {
-    const ativos = ad.agenda.filter(a => a.status !== 'cancelado');
+    const agenda = ad.filtroProf === null ? ad.agenda : ad.agenda.filter(a => a.profissional_id === ad.filtroProf);
+    const ativos = agenda.filter(a => a.status !== 'cancelado');
     const previsto = ativos.filter(a => a.status !== 'faltou').reduce((s, a) => s + Number(a.valor), 0);
-    const recebido = ad.agenda.filter(a => a.pagamento_status === 'pago').reduce((s, a) => s + Number(a.valor), 0);
-    const conferir = ad.agenda.filter(a => a.pagamento_status === 'informado' && a.status !== 'cancelado').length;
+    const recebido = agenda.filter(a => a.pagamento_status === 'pago').reduce((s, a) => s + Number(a.valor), 0);
+    const conferir = agenda.filter(a => a.pagamento_status === 'informado' && a.status !== 'cancelado').length;
     numeros = `<div class="numeros"><div><b>${ativos.length}</b><span>agendamento${ativos.length === 1 ? '' : 's'}</span></div><div><b>${dinheiro(previsto)}</b><span>previsto</span></div><div><b>${dinheiro(recebido)}</b><span>recebido</span></div></div>
       ${conferir ? `<p class="selo selo-aviso" style="margin:-6px 0 14px;font-size:14px;padding:6px 12px;white-space:normal">${conferir} Pix informado${conferir > 1 ? 's' : ''} para conferir no banco</p>` : ''}`;
-    if (!ad.agenda.length) lista = '<div class="vazio">Nenhum agendamento neste período.</div>';
+    if (!agenda.length) lista = '<div class="vazio">Nenhum agendamento neste período.</div>';
     else {
       let html = '', dia = '';
-      for (const a of ad.agenda) {
+      for (const a of agenda) {
         if (a.data !== dia) { dia = a.data; html += `<h2 class="dia-titulo" style="font:700 16px/1.4 var(--texto)">${esc(dataLonga(dia))}</h2>`; }
         html += linhaAgendamento(a);
       }
@@ -751,6 +780,7 @@ function abaAgenda() {
   return `<h1>Agenda</h1>${pendenciasAgenda()}
     <div class="segmento" role="group" aria-label="Período">${[['semana', 'Semana'], ['mes', 'Mês'], ['trimestre', 'Trimestre']].map(([k, r]) => `<button class="${ad.periodo === k ? 'sel' : ''}" data-a="periodo" data-k="${k}">${r}</button>`).join('')}</div>
     <div class="navega"><button class="icone" data-a="navega" data-n="-1" aria-label="Período anterior">${ICONES.esq}</button><strong class="inicial">${rotuloIntervalo()}</strong><button class="icone" data-a="navega" data-n="1" aria-label="Próximo período">${ICONES.dir}</button></div>
+    ${seletorProfissional('filtro-prof', ad.filtroProf, true)}
     ${numeros}${lista}`;
 }
 function linhaAgendamento(a) {
@@ -780,14 +810,14 @@ function linhaAgendamento(a) {
           <button class="btn btn-menor btn-principal" data-a="pagto" data-id="${a.id}" data-s="pago" data-f="pix">Recebido no Pix</button>
           <button class="btn btn-menor" data-a="pagto" data-id="${a.id}" data-s="pago" data-f="dinheiro">Em dinheiro</button>
           <button class="btn btn-menor" data-a="pagto" data-id="${a.id}" data-s="pago" data-f="cartao">No cartão</button>
-          ${S.ad.painel.config.pix_chave ? `<button class="btn btn-menor" data-a="pix-admin" data-codigo="${esc(a.codigo)}" data-valor="${a.valor}">Mostrar QR Code</button>` : ''}
+          ${(proAdm(a.profissional_id) || {}).pix_chave ? `<button class="btn btn-menor" data-a="pix-admin" data-prof="${a.profissional_id}" data-codigo="${esc(a.codigo)}" data-valor="${a.valor}">Mostrar QR Code</button>` : ''}
         </div>`}` : ''}
     </div>`;
   }
   return `<article class="linha ${a.status}">
     <button data-a="abrir-linha" data-id="${a.id}" aria-expanded="${aberto}">
       <span class="hora">${esc(a.hora)}</span>
-      <span><span class="tit">${esc(a.cliente)}</span><span class="sub">${esc(a.servico)}, ${dinheiro(a.valor)}</span>
+      <span><span class="tit">${esc(a.cliente)}</span><span class="sub">${esc(a.servico)}, ${dinheiro(a.valor)}${variasAdm() ? `, com ${esc(a.profissional)}` : ''}</span>
       <span class="selos">${a.status !== 'agendado' ? seloStatus(a.status) : ''}${seloPagamento(a)}</span></span>
     </button>${mais}</article>`;
 }
@@ -805,7 +835,7 @@ function abaClientes() {
       <div class="bloco" style="border-top:1px solid var(--linha);padding-top:18px">
         <h2>Serviços realizados</h2>
         <p class="suave pequeno" style="margin-bottom:8px">${realizados.length} atendimento${realizados.length === 1 ? '' : 's'}${realizados.length ? `, ${dinheiro(total)} no total` : ''}.</p>
-        ${c.historico.length ? `<ul class="lista-simples">${c.historico.map(h => `<li><strong>${esc(h.servico)}</strong> ${h.status === 'concluido' ? '' : seloStatus(h.status)}<br><span class="suave pequeno">${dataCurta(h.data)}, às ${esc(h.hora)}. ${dinheiro(h.valor)}. ${h.pagamento_status === 'pago' ? 'Pago.' : 'Pagamento em aberto.'}</span></li>`).join('')}</ul>` : '<p class="suave">Nenhum atendimento ainda.</p>'}
+        ${c.historico.length ? `<ul class="lista-simples">${c.historico.map(h => `<li><strong>${esc(h.servico)}</strong>${variasAdm() ? ` com ${esc(h.profissional)}` : ''} ${h.status === 'concluido' ? '' : seloStatus(h.status)}<br><span class="suave pequeno">${dataCurta(h.data)}, às ${esc(h.hora)}. ${dinheiro(h.valor)}. ${h.pagamento_status === 'pago' ? 'Pago.' : 'Pagamento em aberto.'}</span></li>`).join('')}</ul>` : '<p class="suave">Nenhum atendimento ainda.</p>'}
       </div>
       <form class="bloco" data-envio="salvar-cliente">
         <h2>Dados do cadastro</h2>
@@ -835,6 +865,7 @@ function abaServicos() {
     return `<button class="voltar" data-a="servico-cancelar">${ICONES.esq.replace('<svg', '<svg width="16" height="16"')} Serviços</button>
       <h1>${e.id ? 'Editar serviço' : 'Novo serviço'}</h1>
       <form data-envio="salvar-servico" style="max-width:560px">
+        <label class="campo"><span>Profissional</span><select name="profissional_id" required>${ad.painel.profissionais.map(p => `<option value="${p.id}" ${e.profissional_id === p.id ? 'selected' : ''}>${esc(p.nome)}${p.ativo ? '' : ' (inativa)'}</option>`).join('')}</select></label>
         <label class="campo"><span>Nome</span><input name="nome" required maxlength="80" value="${esc(e.nome)}" placeholder="Design com henna"></label>
         <label class="campo"><span>Descrição (opcional)</span><input name="descricao" maxlength="160" value="${esc(e.descricao)}"></label>
         <div class="duas">
@@ -849,7 +880,11 @@ function abaServicos() {
   }
   return `<h1>Serviços</h1>
     <button class="btn btn-principal" style="margin-bottom:16px" data-a="servico-novo">Novo serviço</button>
-    ${lista.length ? `<ul class="precos">${lista.map(s => `<li><button data-a="servico-editar" data-id="${s.id}"><span class="nome">${esc(s.nome)} ${s.ativo ? '' : '<span class="selo selo-neutro">Oculto</span>'}</span><span class="preco">${dinheiro(s.preco)}</span><span class="det">${esc(s.descricao ? s.descricao + '. ' : '')}${duracaoTexto(s.duracao_min)}</span></button></li>`).join('')}</ul>`
+    ${lista.length ? ad.painel.profissionais.map(p => {
+      const itens = lista.filter(x => x.profissional_id === p.id);
+      if (!itens.length) return '';
+      return `${variasAdm() ? `<h2 class="grupo-prof">${esc(p.nome)}${p.ativo ? '' : ' (inativa)'}</h2>` : ''}<ul class="precos">${itens.map(x => `<li><button data-a="servico-editar" data-id="${x.id}"><span class="nome">${esc(x.nome)} ${x.ativo ? '' : '<span class="selo selo-neutro">Oculto</span>'}</span><span class="preco">${dinheiro(x.preco)}</span><span class="det">${esc(x.descricao ? x.descricao + '. ' : '')}${duracaoTexto(x.duracao_min)}</span></button></li>`).join('')}</ul>`;
+    }).join('')
     : '<div class="vazio">Cadastre o primeiro serviço para ele aparecer na tela das clientes.</div>'}`;
 }
 
@@ -861,7 +896,8 @@ function abaHorarios() {
   const doDia = ad.diaSel ? disp.periodos.filter(x => x.data === ad.diaSel) : [];
   const marcados = ad.diaSel ? (disp.ocupados[ad.diaSel] || 0) : 0;
   return `<h1>Dias e horários</h1>
-  <p class="suave" style="margin:-8px 0 16px">A agenda pode ficar aberta até ${dataCurta(p.limite)}, 3 meses à frente.</p>
+  <p class="suave" style="margin:-8px 0 16px">A agenda pode ficar aberta até ${dataCurta(p.limite)}, 3 meses à frente.${variasAdm() ? ' Cada profissional tem seus próprios dias e horários.' : ''}</p>
+  ${seletorProfissional('hor-prof', ad.profHor, false)}
   <div class="colunas-horario">
     <div>
       ${calendario({ mes: ad.mesHor, ativo: d => abertos.has(d), livre: d => d >= p.hoje && d <= p.limite, sel: ad.diaSel, marca: d => disp.ocupados[d] > 0, acao: 'hor-dia', min: p.hoje, max: p.limite })}
@@ -885,30 +921,51 @@ function abaHorarios() {
   </div>`;
 }
 
-function abaAjustes() {
-  const c = S.ad.painel.config;
+function formProfissional() {
+  const e = S.ad.editarProf;
   const tipos = [['telefone', 'Celular'], ['cpf', 'CPF'], ['cnpj', 'CNPJ'], ['email', 'E-mail'], ['aleatoria', 'Chave aleatória']];
+  return `<button class="voltar" data-a="prof-cancelar">${ICONES.esq.replace('<svg', '<svg width="16" height="16"')} Ajustes</button>
+    <h1>${e.id ? 'Editar profissional' : 'Nova profissional'}</h1>
+    <form data-envio="salvar-prof" style="max-width:560px">
+      <label class="campo"><span>Nome da profissional</span><input name="nome" required minlength="2" maxlength="60" value="${esc(e.nome)}"></label>
+      <label class="campo"><span>WhatsApp dela (opcional)</span><input name="whatsapp" type="tel" data-mascara="zap" value="${esc(fone(e.whatsapp))}" placeholder="(85) 99999-9999"><small>Se ficar vazio, as clientes falam com o WhatsApp do Studio.</small></label>
+      <label class="campo"><span>Situação</span><select name="ativo"><option value="true" ${e.ativo !== false ? 'selected' : ''}>Ativa</option><option value="false" ${e.ativo === false ? 'selected' : ''}>Inativa, fora da tela das clientes</option></select></label>
+      <div class="bloco" style="border-top:1px solid var(--linha);padding:20px 0 4px">
+        <h2>QR Code de pagamento</h2>
+        <p class="suave pequeno" style="margin-bottom:14px">O app gera o QR Code do Pix com o valor do serviço. O dinheiro cai direto nesta chave. A confirmação do recebimento é feita na agenda.</p>
+        <label class="campo"><span>Tipo de chave</span><select name="pix_tipo"><option value="">Escolha</option>${tipos.map(([k, r]) => `<option value="${k}" ${e.pix_tipo === k ? 'selected' : ''}>${r}</option>`).join('')}</select></label>
+        <label class="campo"><span>Chave Pix</span><input name="pix_chave" value="${esc(e.pix_chave)}" autocapitalize="off" autocomplete="off"><small>Se ficar vazia, os serviços desta profissional só poderão ser pagos no dia.</small></label>
+        <div class="duas">
+          <label class="campo"><span>Nome do recebedor</span><input name="pix_nome" maxlength="25" value="${esc(e.pix_nome)}"><small>Como está no banco.</small></label>
+          <label class="campo"><span>Cidade</span><input name="pix_cidade" maxlength="15" value="${esc(e.pix_cidade)}"></label>
+        </div>
+      </div>
+      <div class="acoes"><button class="btn btn-principal">Salvar profissional</button>
+      ${e.id && e.pix_chave ? '<button type="button" class="btn" data-a="pix-teste">Ver QR Code de teste</button>' : ''}
+      ${e.id ? '<button type="button" class="btn btn-perigo" data-a="prof-excluir">Excluir</button>' : ''}</div>
+      ${e.id && e.pix_chave ? '<p class="pequeno suave" style="margin-top:10px">Faça um Pix de R$ 0,01 pelo QR Code de teste para conferir se o nome e a chave estão certos.</p>' : ''}
+    </form>`;
+}
+function abaAjustes() {
+  if (S.ad.editarProf) return formProfissional();
+  const c = S.ad.painel.config;
   return `<h1>Ajustes</h1>
   <form class="bloco" data-envio="salvar-studio">
     <h2>O Studio</h2>
+    <label class="campo"><span>Frase da tela inicial</span><input name="frase" maxlength="120" value="${esc(c.frase)}"></label>
     <label class="campo"><span>Endereço completo</span><input name="endereco" maxlength="300" value="${esc(c.endereco)}" placeholder="Rua, número, bairro, cidade"></label>
     <label class="campo"><span>Link da localização (opcional)</span><input name="mapa_link" type="url" value="${esc(c.mapa_link)}" placeholder="https://maps.app.goo.gl/…"><small>Se ficar vazio, o mapa é aberto pelo endereço acima.</small></label>
     <label class="campo"><span>WhatsApp do Studio</span><input name="whatsapp" type="tel" data-mascara="zap" value="${esc(fone(c.whatsapp))}" placeholder="(85) 99999-9999"></label>
     <button class="btn btn-principal">Salvar dados do Studio</button>
   </form>
-  <form class="bloco" data-envio="salvar-pix">
-    <h2>QR Code de pagamento</h2>
-    <p class="suave pequeno" style="margin-bottom:14px">O app gera o QR Code do Pix com o valor do serviço. O dinheiro cai direto nesta chave. A confirmação do recebimento é feita por você, na agenda.</p>
-    <label class="campo"><span>Tipo de chave</span><select name="pix_tipo" required><option value="">Escolha</option>${tipos.map(([k, r]) => `<option value="${k}" ${c.pix_tipo === k ? 'selected' : ''}>${r}</option>`).join('')}</select></label>
-    <label class="campo"><span>Chave Pix</span><input name="pix_chave" required value="${esc(c.pix_chave)}" autocapitalize="off" autocomplete="off"></label>
-    <div class="duas">
-      <label class="campo"><span>Nome do recebedor</span><input name="pix_nome" required maxlength="25" value="${esc(c.pix_nome)}"><small>Como está no banco.</small></label>
-      <label class="campo"><span>Cidade</span><input name="pix_cidade" required maxlength="15" value="${esc(c.pix_cidade)}"></label>
-    </div>
-    <div class="acoes"><button class="btn btn-principal">Salvar chave Pix</button>
-    ${c.pix_chave ? '<button type="button" class="btn" data-a="pix-teste">Ver QR Code de teste</button>' : ''}</div>
-    ${c.pix_chave ? '<p class="pequeno suave" style="margin-top:10px">Depois de salvar, faça um Pix de R$ 0,01 pelo QR Code de teste para conferir se o nome e a chave estão certos.</p>' : ''}
-  </form>
+  <div class="bloco">
+    <h2>Profissionais e chaves Pix</h2>
+    ${S.ad.painel.profissionais.map(p => `<div class="linha"><button class="cliente-btn" style="display:flex" data-a="prof-editar" data-id="${p.id}">
+      <span class="tit">${esc(p.nome)}</span>
+      <span class="selos" style="display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end">${p.ativo ? '' : '<span class="selo selo-neutro">Inativa</span>'}${p.pix_chave ? '<span class="selo selo-ok">Pix cadastrado</span>' : '<span class="selo selo-aviso">Sem Pix</span>'}</span>
+    </button></div>`).join('')}
+    <button class="btn" style="margin-top:6px" data-a="prof-novo">Nova profissional</button>
+  </div>
   <form class="bloco" data-envio="salvar-regras">
     <h2>Regras da agenda</h2>
     <div class="duas">
@@ -943,7 +1000,7 @@ async function carregarClientes() {
 async function carregarDisp() {
   const p = S.ad.painel;
   try {
-    S.ad.disp = await adRpc('sg_admin_disponibilidade', { p_de: p.hoje, p_ate: p.limite });
+    S.ad.disp = await adRpc('sg_admin_disponibilidade', { p_profissional: S.ad.profHor, p_de: p.hoje, p_ate: p.limite });
   } catch (e) { aviso(e.message); }
   render();
 }
@@ -952,6 +1009,8 @@ async function carregarPainel() {
   const p = S.ad.painel;
   S.ad.ref = S.ad.ref || p.hoje;
   S.ad.mesHor = S.ad.mesHor || p.hoje;
+  if (!p.profissionais.some(x => x.id === S.ad.profHor)) S.ad.profHor = (p.profissionais.find(x => x.ativo) || p.profissionais[0]).id;
+  if (S.ad.filtroProf !== null && !p.profissionais.some(x => x.id === S.ad.filtroProf)) S.ad.filtroProf = null;
   S.ad.form = S.ad.form || { de: somaDias(p.hoje, 1) > p.limite ? p.hoje : somaDias(p.hoje, 1), ate: p.limite, dias: ['1', '2', '3', '4', '5', '6'], ini1: '09:00', fim1: '12:00', ini2: '14:00', fim2: '18:00' };
 }
 async function iniciarAdmin() {
@@ -966,7 +1025,7 @@ async function iniciarAdmin() {
 }
 function irAba(k) {
   const ad = S.ad;
-  ad.aba = k; ad.cliente = null; ad.editarServico = null; ad.aberto = null;
+  ad.aba = k; ad.cliente = null; ad.editarServico = null; ad.editarProf = null; ad.aberto = null;
   scrollTo(0, 0);
   if (k === 'agenda') carregarAgenda();
   else if (k === 'clientes') carregarClientes();
@@ -1039,16 +1098,20 @@ const acoes = {
       guarda.gravar('sg_codigos', [r.codigo, ...codigosGuardados()].slice(0, 30));
       guarda.gravar('sg_cliente', { nome: f.nome, whatsapp: f.whatsapp });
       S.tela = 'pronto'; scrollTo(0, 0); render();
-      if (d.p === 'antecipado' && S.pub.studio.pix) janelaPix(r.codigo, r.valor);
+      if (d.p === 'antecipado' && r.pix) janelaPix(r.pix, r.codigo, r.valor);
     } catch (e) {
       f.enviando = false;
       aviso(e.message, 6000);
       if (/ocupado/.test(e.message)) { f.passo = 2; f.hora = null; const data = f.data; await acoes['fluxo-dia']({ d: data }); } else render();
     }
   },
-  pix(d) { janelaPix(d.codigo, d.valor); },
-  'pix-admin'(d) { janelaPix(d.codigo, d.valor, true); },
-  'pix-teste'() { janelaPix('', 0, true); },
+  pix(d) {
+    const r = S.fluxo && S.fluxo.resultado;
+    const item = r && r.codigo === d.codigo ? r : (S.meus || []).find(a => a.codigo === d.codigo);
+    if (item && item.pix) janelaPix(item.pix, item.codigo, item.valor);
+  },
+  'pix-admin'(d) { janelaPix(pixDoProfissional(proAdm(Number(d.prof))), d.codigo, d.valor, true); },
+  'pix-teste'() { janelaPix(pixDoProfissional(S.ad.editarProf), '', 0, true); },
   'copiar-pix'(d) { copiar(d.t, 'Código Pix copiado.'); },
   async 'pix-paguei'(d) {
     try {
@@ -1106,7 +1169,7 @@ const acoes = {
     try { await adRpc('sg_admin_excluir_cliente', { p_id: c.id }); S.ad.cliente = null; aviso('Cliente excluída.'); carregarClientes(); }
     catch (e) { aviso(e.message); }
   },
-  'servico-novo'() { S.ad.editarServico = { id: null, nome: '', descricao: '', preco: '', duracao_min: 30, ativo: true }; scrollTo(0, 0); render(); },
+  'servico-novo'() { const a = prosAtivas()[0] || S.ad.painel.profissionais[0]; S.ad.editarServico = { id: null, profissional_id: a.id, nome: '', descricao: '', preco: '', duracao_min: 30, ativo: true }; scrollTo(0, 0); render(); },
   'servico-editar'(d) { S.ad.editarServico = { ...S.ad.painel.servicos.find(s => s.id === Number(d.id)) }; scrollTo(0, 0); render(); },
   'servico-cancelar'() { S.ad.editarServico = null; render(); },
   async 'servico-excluir'() {
@@ -1114,6 +1177,17 @@ const acoes = {
     if (!(await confirmar(`Excluir ${e.nome}?`, 'O serviço deixa de aparecer para as clientes. Os agendamentos já feitos continuam na agenda.', 'Excluir serviço'))) return;
     try { await adRpc('sg_admin_excluir_servico', { p_id: e.id }); await carregarPainel(); S.ad.editarServico = null; aviso('Serviço excluído.'); render(); }
     catch (err) { aviso(err.message); }
+  },
+  'filtro-prof'(d) { S.ad.filtroProf = d.id ? Number(d.id) : null; S.ad.aberto = null; render(); },
+  'hor-prof'(d) { lerFormHorarios(); S.ad.profHor = Number(d.id); S.ad.disp = null; S.ad.diaSel = null; render(); carregarDisp(); },
+  'prof-novo'() { S.ad.editarProf = { id: null, nome: '', whatsapp: '', pix_tipo: '', pix_chave: '', pix_nome: '', pix_cidade: '', ativo: true }; scrollTo(0, 0); render(); },
+  'prof-editar'(d) { S.ad.editarProf = { ...proAdm(Number(d.id)) }; scrollTo(0, 0); render(); },
+  'prof-cancelar'() { S.ad.editarProf = null; render(); },
+  async 'prof-excluir'() {
+    const e = S.ad.editarProf;
+    if (!(await confirmar(`Excluir ${e.nome}?`, 'A profissional sai do cadastro, com os dias e horários que estavam abertos.', 'Excluir profissional'))) return;
+    try { await adRpc('sg_admin_excluir_profissional', { p_id: e.id }); await carregarPainel(); S.ad.editarProf = null; aviso('Profissional excluída.'); render(); }
+    catch (err) { aviso(err.message, 7000); }
   },
   'hor-dia'(d) {
     lerFormHorarios();
@@ -1147,7 +1221,7 @@ const acoes = {
 async function fecharDias(de, ate, dias, rotulo) {
   if (!(await confirmar('Fechar estes dias?', `${rotulo}: as clientes não poderão mais marcar nesses dias. Os horários já marcados continuam na agenda.`, 'Fechar dias'))) return;
   try {
-    const r = await adRpc('sg_admin_fechar_dias', { p_de: de, p_ate: ate, p_dias: dias });
+    const r = await adRpc('sg_admin_fechar_dias', { p_profissional: S.ad.profHor, p_de: de, p_ate: ate, p_dias: dias });
     await carregarPainel();
     await carregarDisp();
     aviso(`${r.dias} dia${r.dias === 1 ? '' : 's'} fechado${r.dias === 1 ? '' : 's'}.${r.marcados ? ` Atenção: há ${r.marcados} horário${r.marcados === 1 ? '' : 's'} marcado${r.marcados === 1 ? '' : 's'} nesse período.` : ''}`, 7000);
@@ -1215,19 +1289,27 @@ const envios = {
       if (era) irAba('agenda'); else form.reset();
     } catch (e) { aviso(e.message); }
   },
-  async 'salvar-studio'(v) { await salvarConfig({ endereco: v.endereco, mapa_link: v.mapa_link, whatsapp: v.whatsapp }, 'Dados do Studio salvos.'); },
-  async 'salvar-pix'(v) {
+  async 'salvar-studio'(v) { await salvarConfig({ frase: v.frase, endereco: v.endereco, mapa_link: v.mapa_link, whatsapp: v.whatsapp }, 'Dados do Studio salvos.'); },
+  async 'salvar-prof'(v) {
     try {
-      const chave = normalizarChave(v.pix_tipo, v.pix_chave);
-      await salvarConfig({ pix_tipo: v.pix_tipo, pix_chave: chave, pix_nome: v.pix_nome, pix_cidade: v.pix_cidade }, 'Chave Pix salva.');
-    } catch (e) { aviso(e.message); }
+      let chave = '';
+      if (v.pix_chave.trim()) {
+        chave = normalizarChave(v.pix_tipo, v.pix_chave);
+        if (!v.pix_nome.trim() || !v.pix_cidade.trim()) throw new ErroApp('Informe o nome do recebedor e a cidade da chave Pix.');
+      }
+      await adRpc('sg_admin_salvar_profissional', { p_dados: { id: S.ad.editarProf.id, nome: v.nome, whatsapp: v.whatsapp, ativo: v.ativo === 'true', pix_tipo: v.pix_tipo, pix_chave: chave, pix_nome: v.pix_nome, pix_cidade: v.pix_cidade } });
+      await carregarPainel();
+      S.ad.editarProf = null;
+      aviso('Profissional salva.');
+      render();
+    } catch (e) { aviso(e.message, 6000); }
   },
   async 'salvar-regras'(v) { await salvarConfig({ intervalo_min: Number(v.intervalo_min), antecedencia_min: Number(v.antecedencia_min) }, 'Regras salvas.'); },
   async 'salvar-servico'(v) {
     const preco = Number(String(v.preco).replace(/\./g, '').replace(',', '.'));
     if (!Number.isFinite(preco) || preco < 0) { aviso('Confira o preço.'); return; }
     try {
-      await adRpc('sg_admin_salvar_servico', { p_dados: { id: S.ad.editarServico.id, nome: v.nome, descricao: v.descricao, preco, duracao_min: Number(v.duracao_min), ativo: v.ativo === 'true' } });
+      await adRpc('sg_admin_salvar_servico', { p_dados: { id: S.ad.editarServico.id, profissional_id: Number(v.profissional_id), nome: v.nome, descricao: v.descricao, preco, duracao_min: Number(v.duracao_min), ativo: v.ativo === 'true' } });
       await carregarPainel();
       S.ad.editarServico = null;
       aviso('Serviço salvo.');
@@ -1242,7 +1324,7 @@ const envios = {
     const periodos = [{ inicio: v.ini1, fim: v.fim1 }];
     if (v.ini2) periodos.push({ inicio: v.ini2, fim: v.fim2 });
     try {
-      const r = await adRpc('sg_admin_abrir_dias', { p_de: v.de, p_ate: v.ate, p_dias: f.dias, p_periodos: periodos });
+      const r = await adRpc('sg_admin_abrir_dias', { p_profissional: S.ad.profHor, p_de: v.de, p_ate: v.ate, p_dias: f.dias, p_periodos: periodos });
       await carregarPainel();
       await carregarDisp();
       aviso(r.dias ? `${r.dias} dia${r.dias === 1 ? '' : 's'} aberto${r.dias === 1 ? '' : 's'}.` : 'Nenhum dia aberto: o período não inclui os dias da semana escolhidos.');
